@@ -5,11 +5,23 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+// eslint-disable-next-line
+import OneSignal from '@onesignal/onesignal-vue3'
 
 export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  async mounted() {
+    try {
+      console.log('entro?',  this.$OneSignal.User.PushSubscription);
+      await this.$OneSignal.Notifications.requestPermission()
+    console.log('Push enabled', this.$OneSignal.Notifications)
+    } catch (error) {
+      console.error('error', error)
+    }
+
   }
 }
 </script>
