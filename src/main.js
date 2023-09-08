@@ -4,7 +4,7 @@ import './registerServiceWorker'
 import OneSignal from '@onesignal/onesignal-vue3'
 
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/OneSignalSDKWorker.js').then((registration) => {
+    navigator.serviceWorker.register('/push/OneSignalSDKWorker.js').then((registration) => {
     console.log('Service Worker 2 registered with scope:', registration.scope);
   }).catch((error) => {
     console.error('Service Worker 2 registration failed:', error);
