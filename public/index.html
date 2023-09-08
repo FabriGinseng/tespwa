@@ -9,6 +9,15 @@
   <title>
     <%= htmlWebpackPlugin.options.title %>
   </title>
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function (OneSignal) {
+      OneSignal.init({
+        appId: "b7fced3b-c9c5-4587-83d2-67a2fe99d6bd",
+      });
+    });
+  </script>
 </head>
 
 <body>
