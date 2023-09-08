@@ -21,9 +21,9 @@ export default {
   },
   async mounted() {
     try {
-      await this.$OneSignal.Notifications.requestPermission()
-      this.pushenabled = this.$OneSignal.Notifications.permission
-      console.log('Push enabled', this.$OneSignal.Notifications.permission)
+      // await this.$OneSignal.Notifications.requestPermission()
+      // this.pushenabled = this.$OneSignal.Notifications.permission
+      // console.log('Push enabled', this.$OneSignal.Notifications.permission)
     } catch (error) {
       console.error('error', error)
       alert(error)
