@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
-import OneSignal from '@onesignal/onesignal-vue3'
+// import OneSignal from '@onesignal/onesignal-vue3'
 
 
 const app = createApp(App, {
