@@ -1,6 +1,7 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <p>{{ pushenabled }}</p>
+  <button @click="Enable">enable push</button>
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
@@ -21,14 +22,19 @@ export default {
   },
   async mounted() {
     try {
-      // await this.$OneSignal.Notifications.requestPermission()
-      // this.pushenabled = this.$OneSignal.Notifications.permission
-      // console.log('Push enabled', this.$OneSignal.Notifications.permission)
+      
+      this.pushenabled = this.$OneSignal.Notifications.permission
+      console.log('Push enabled', this.$OneSignal.Notifications.permission)
     } catch (error) {
       console.error('error', error)
       alert(error)
     }
 
+  },
+  methods:{
+   async Enable(){
+      await this.$OneSignal.Notifications.requestPermission()
+    }
   }
 }
 </script>
