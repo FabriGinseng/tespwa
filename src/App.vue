@@ -15,11 +15,13 @@ export default {
   },
   async mounted() {
     try {
-      console.log('entro?',  this.$OneSignal.User.PushSubscription);
+      alert(this.$OneSignal.Notifications.permission)
+      
       await this.$OneSignal.Notifications.requestPermission()
-    console.log('Push enabled', this.$OneSignal.Notifications)
+      console.log('Push enabled', this.$OneSignal.Notifications.permission)
     } catch (error) {
       console.error('error', error)
+      alert(error)
     }
 
   }
