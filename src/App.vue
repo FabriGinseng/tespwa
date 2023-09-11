@@ -3,6 +3,8 @@
   <p>{{ pushenabled }}</p>
   <button @click="Enable">enable push</button>
   <button @click="requestCameraPermission">permesso della fotocamera</button>
+  <input type="file" id="fileInput" name="fileInput" accept=".jpg, .jpeg, .png, .gif">
+
   <Cameracomponent v-if="permissionGranted"></Cameracomponent>
 </template>
 
