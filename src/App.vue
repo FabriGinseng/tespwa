@@ -2,18 +2,16 @@
   <img alt="Vue logo" src="./assets/logo.png">
   <p>{{ pushenabled }}</p>
   <button @click="Enable">enable push</button>
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <button @click="requestCameraPermission">permesso della fotocamera</button>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 // eslint-disable-next-line
 import OneSignal from '@onesignal/onesignal-vue3'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
   },
   data(){
     return{
@@ -32,6 +30,21 @@ export default {
 
   },
   methods:{
+    async requestCameraPermission() {
+      try {
+        await navigator.mediaDevices.getUserMedia({ video: true,  });
+        const permission = await Notification.requestPermission()
+        if (permission === 'granted') {
+          // Il permesso è stato concesso, ora puoi inviare notifiche.
+        } else {
+          // L'utente ha negato il permesso.
+          console.warn('L\'utente ha negato il permesso per le notifiche.');
+        }
+      } catch (error) {
+        // Gestisci eventuali errori qui, ad esempio l'utente ha negato il permesso.
+        console.error('Errore nell\'ottenere l\'accesso alla fotocamera:', error);
+      }
+    },
    async Enable(){
       await this.$OneSignal.Notifications.requestPermission()
     }
