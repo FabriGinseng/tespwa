@@ -3,15 +3,18 @@
   <p>{{ pushenabled }}</p>
   <button @click="Enable">enable push</button>
   <button @click="requestCameraPermission">permesso della fotocamera</button>
+  <Cameracomponent></Cameracomponent>
 </template>
 
 <script>
 // eslint-disable-next-line
 import OneSignal from '@onesignal/onesignal-vue3'
+import Cameracomponent from './components/Cameracomponent.vue'
 
 export default {
   name: 'App',
   components: {
+    Cameracomponent
   },
   data(){
     return{
