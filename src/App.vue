@@ -35,7 +35,7 @@ export default {
   methods:{
     async requestCameraPermission() {
       try {
-        await navigator.mediaDevices.getUserMedia({ video: true,  });
+        //await navigator.mediaDevices.getUserMedia({ video: true,  });
         const permission = await Notification.requestPermission()
         if (permission === 'granted') {
           // Il permesso è stato concesso, ora puoi inviare notifiche.
