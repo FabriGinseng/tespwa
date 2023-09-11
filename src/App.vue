@@ -3,7 +3,7 @@
   <p>{{ pushenabled }}</p>
   <button @click="Enable">enable push</button>
   <button @click="requestCameraPermission">permesso della fotocamera</button>
-  <Cameracomponent></Cameracomponent>
+  <Cameracomponent v-if="permissionGranted"></Cameracomponent>
 </template>
 
 <script>
@@ -18,7 +18,8 @@ export default {
   },
   data(){
     return{
-      pushenabled:false
+      pushenabled:false,
+      permissionGranted: false
     }
   },
   async mounted() {
@@ -38,6 +39,7 @@ export default {
         //await navigator.mediaDevices.getUserMedia({ video: true,  });
         const permission = await Notification.requestPermission()
         if (permission === 'granted') {
+          this.permissionGranted = true
           // Il permesso è stato concesso, ora puoi inviare notifiche.
         } else {
           // L'utente ha negato il permesso.
